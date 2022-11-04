@@ -74,9 +74,9 @@ def question():
         
             2. See Other Profiles?
 
-            3. FUCKING OBLITERATE THE EXISTENCE OF A BEING OTHER THAN YOURSELF
+            3. OBLITERATE THE EXISTENCE OF A BEING OTHER THAN YOURSELF
 
-            4. Change Hero About Me or Backstory
+            4. Change Hero Alias, About Me, or Backstory
         
         """)
     ans = input("------------ ")
