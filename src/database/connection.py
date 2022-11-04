@@ -48,6 +48,21 @@ def login():
         comfort of your own home
 
         """)
+    print("""
+            
+        
+   ▄█    █▄       ▄████████    ▄████████  ▄██████▄  ▀█████████▄   ▄██████▄   ▄██████▄     ▄█   ▄█▄ 
+  ███    ███     ███    ███   ███    ███ ███    ███   ███    ███ ███    ███ ███    ███   ███ ▄███▀ 
+  ███    ███     ███    █▀    ███    ███ ███    ███   ███    ███ ███    ███ ███    ███   ███▐██▀   
+ ▄███▄▄▄▄███▄▄  ▄███▄▄▄      ▄███▄▄▄▄██▀ ███    ███  ▄███▄▄▄██▀  ███    ███ ███    ███  ▄█████▀    
+▀▀███▀▀▀▀███▀  ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███    ███ ▀▀███▀▀▀██▄  ███    ███ ███    ███ ▀▀█████▄    
+  ███    ███     ███    █▄  ▀███████████ ███    ███   ███    ██▄ ███    ███ ███    ███   ███▐██▄   
+  ███    ███     ███    ███   ███    ███ ███    ███   ███    ███ ███    ███ ███    ███   ███ ▀███▄ 
+  ███    █▀      ██████████   ███    ███  ▀██████▀  ▄█████████▀   ▀██████▀   ▀██████▀    ███   ▀█▀ 
+                              ███    ███                                                 ▀         
+
+    
+    """)
     question()
 
 def question():
@@ -59,9 +74,9 @@ def question():
         
             2. See Other Profiles?
 
-            3. FUCKING OBLITARATE THE EXISTENCE OF A BEING OTHER THAN YOURSELF
+            3. FUCKING OBLITERATE THE EXISTENCE OF A BEING OTHER THAN YOURSELF
 
-            4. Change Hero Backstory
+            4. Change Hero About Me or Backstory
         
         """)
     ans = input("------------ ")
@@ -281,40 +296,110 @@ def question():
         """
         print("""
         
-        """ + ans2 + """ KILLED
-        
+        """ + ans2 + """ KILLED, OBLITERATED, MAIMED, TORTURED, NEVER TO COME BACK, YOURE HORRIBLE, YOU LOVE IT DON'T YOU? YOU SICK FREAK!!!
+
+        THEY'VE BEEN 
+
+                                                    
+                                        ██ ▄█▀  ██▓ ██▓     ██▓    ▓█████ ▓█████▄ 
+                                        ██▄█▒  ▓██▒▓██▒    ▓██▒    ▓█   ▀ ▒██▀ ██▌
+                                        ▓███▄░ ▒██▒▒██░    ▒██░    ▒███   ░██   █▌
+                                        ▓██ █▄ ░██░▒██░    ▒██░    ▒▓█  ▄ ░▓█▄   ▌
+                                        ▒██▒ █▄░██░░██████▒░██████▒░▒████▒░▒████▓ 
+                                        ▒ ▒▒ ▓▒░▓  ░ ▒░▓  ░░ ▒░▓  ░░░ ▒░ ░ ▒▒▓  ▒ 
+                                        ░ ░▒ ▒░ ▒ ░░ ░ ▒  ░░ ░ ▒  ░ ░ ░  ░ ░ ▒  ▒ 
+                                        ░ ░░ ░  ▒ ░  ░ ░     ░ ░      ░    ░ ░  ░ 
+                                        ░  ░    ░      ░  ░    ░  ░   ░  ░   ░    
+                                                                        ░      
+
+                                                
         """)
 
         murder = execute_query(query, (ans2,))
 
-    
+
     if ans == "4":
         print("""
         
-            Who's backstory would you like to change?
+            Which Hero are you trying to change?
 
         """)
-        prop1 = input("------------ ")
-        print("""
-
-            What would you like the new backstory to be?
-        
-        """)
-        prop2= input("------------ ")
-
-        query = """
-            UPDATE heroes
-            SET biography = %s
-            WHERE name = %s
-        """
-
-        bio = execute_query(query, (prop2, prop1))
-
+        prop1 = input("")
         print("""
         
-            Backstory Changed
+            Would you like to change Hero Alias, About Me, or Backstory?
+
+            1. Hero Alias
+
+            2. About me
+
+            3. Backstory
 
         """)
+        ans2 = input("------------ ")
+        if ans2 == "1":
+            print("""
+
+                What would you like the new About Me to be?
+            
+            """)
+            prop2= input("------------ ")
+
+            query = """
+                UPDATE heroes
+                SET about_me = %s
+                WHERE name = %s
+            """
+
+            bio = execute_query(query, (prop2, prop1))
+
+            print("""
+            
+                About Me Changed
+
+            """)
+        if ans2 == "2":
+            print("""
+
+                What would you like the new Backstory to be?
+            
+            """)
+            prop2= input("------------ ")
+
+            query = """
+                UPDATE heroes
+                SET biography = %s
+                WHERE name = %s
+            """
+
+            bio = execute_query(query, (prop2, prop1))
+
+            print("""
+            
+                Backstory Changed
+
+            """)
+        if ans2 == "3":
+            print("""
+
+                What would you like the new Hero Alias to be?
+            
+            """)
+            prop2= input("------------ ")
+
+            query = """
+                UPDATE heroes
+                SET name = %s
+                WHERE name = %s
+            """
+
+            bio = execute_query(query, (prop2, prop1))
+
+            print("""
+            
+                Hero Alias Changed
+
+            """)
     question()
 
 
