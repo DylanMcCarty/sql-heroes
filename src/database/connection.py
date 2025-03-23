@@ -192,9 +192,18 @@ def question():
             """)
         ans2 = input("------------ ")
     
+
+    # SELECT * FROM heroes 
         if ans2 == "1":
             query = """
-                SELECT * FROM heroes
+                SELECT 
+                    h.name, 
+                    h.about_me, 
+                    h.biography, 
+                    at.name 
+                FROM heroes h
+                JOIN ability_types at
+                ON at.id = h.id
             """
             list_of_heroes = execute_query(query).fetchall()
 
@@ -202,13 +211,16 @@ def question():
                 print("""
                 
                 Name:
-                """ + record[1] + """
+                """ + record[0] + """
 
                 About Me:
-                """ + record[2] + """
+                """ + record[1] + """
 
                 Biography:
-                """ + record[3] + """ 
+                """ + record[2] + """ 
+
+                Super Power:
+                """ + record[3] + """
 
                     """)
                 
